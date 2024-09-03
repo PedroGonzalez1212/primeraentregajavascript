@@ -5,16 +5,16 @@ function calcularinteres (cantidadcuotas) {
     let interes = 0
 
     switch (true){
-        case (cantidadcuotas > 6):
-            interes = 0.10
+        case (cantidadcuotas >= 18):
+            interes = 0.30
             break;
 
-        case (cantidadcuotas > 12):
+        case (cantidadcuotas >= 12):
             interes = 0.20
             break;
 
-        case (cantidadcuotas > 18):
-            interes = 0.30
+        case (cantidadcuotas >= 6):
+            interes = 0.10
             break;
 
         default:
@@ -35,8 +35,8 @@ function opciones (){
 //inicion del programa
 
 alert (opciones ())
-let cantidadcuotas = parseInt(prompt("ingrese la cantidad de cuotas que desea:"))
 let montototal = prompt("ingrese el monto total:")
+let cantidadcuotas = parseInt(prompt("ingrese la cantidad de cuotas que desea:"))
 let interes = calcularinteres (cantidadcuotas)
 let total = 0
 
@@ -45,5 +45,5 @@ for (let i = 1; i <= cantidadcuotas; i++) {
     total += (montototal / cantidadcuotas) + ((montototal / cantidadcuotas) * interes);
 }
 
-console.log(`El monto total a pagar en ${cantidadcuotas} cuotas es de: $ ${total} `);
-console.log(`El monto de cada cuota es de: $ ${(total / cantidadcuotas)} `);
+console.log(`El monto total a pagar en ${cantidadcuotas} cuotas es de: $ ${total.toFixed(2)} `);
+console.log(`El monto de cada cuota es de: $ ${(total / cantidadcuotas).toFixed(2)} `);
